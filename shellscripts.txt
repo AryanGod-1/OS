@@ -1,0 +1,67 @@
+1. Display OS Version, Release Number, Kernel Version
+
+    gedit program1.sh                                             (optional to run after closing gedit)
+
+    cat /etc/os-release
+    uname -a
+    hostnamectl
+
+    chmod +x program5.sh                                          (optional to run after closing gedit)
+    ./program5.sh                                                 (optional to run after closing gedit)
+
+explanation:
+cat = Concatenate (display file contents)
+/etc/os-release = File containing OS info
+uname -a = Print all system info (-a = all)
+hostnamectl = Show hostname and OS details
+
+--------------------------------------
+
+2. Display Top 10 Processes (Descending Order)
+
+     
+       echo "===== Top 10 CPU Processes ====="
+       ps -eo pcpu,pid,user,args --no-headers | sort -t. -nk1,2 -k4,4 -r | head -n 10
+    
+
+Explanation:
+ps = Process status
+-eo pcpu,pid,user,args = Show CPU%, PID, user, and command (-e = all processes, -o = custom format)
+--no-headers = Remove column headers
+| = Pipe (send output to next command)
+sort = Sort lines
+-t. = Use . as delimiter
+-nk1,2 = Numeric sort on columns 1-2 (CPU%)
+-k4,4 -r = Reverse sort on column 4 (command)
+head -n 10 = Show first 10 lines
+
+------------------------------------------
+3. Display Processes with Highest Memory Usage
+         
+         ps aux --sort -rss
+
+explanation:
+ps aux = Show all processes (a = all users,
+ u = user-friendly format, x = include non-terminal processes)
+ --sort -rss = Sort by resident set size (RAM) in descending order (- = reverse)
+
+ ---------------------------------------------------
+ 4. Display Current Logged-in User
+  
+        echo "Hi, $USER! Good Morning."
+        echo "Hello, $LOGNAME!"
+
+Explanation:
+echo = Print text
+$USER = Environment variable for current username
+$LOGNAME = Alternative variable for username
+----------------------------------------------------
+5. Display System Info (Shell, Home Dir, OS, Path, PWD)
+
+        echo -e "Current Shell: $SHELL\nHome Directory: $HOME\nOS Type: $OSTYPE\nPATH: $PATH\nCurrent directory: $(pwd)"
+        
+
+What It Does:
+$SHELL: Path to your shell (e.g., /bin/bash).
+$HOME: Your home directory path.
+$(pwd): Runs pwd to print the current directory.
