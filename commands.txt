@@ -1,0 +1,50 @@
+man = opens manual page for a command 
+whoami – Displays the current user’s username. 
+uname – Shows system information
+-----------------------------------
+📂 File & Directory Operations
+pwd	- Print current directory path
+ls - list files, 
+ls -l for detials,
+ls-a for hidden files, 
+ls-h for human readable format
+
+cd <dir>   
+cd .. 
+mkdir 
+touch
+
+cp source dest         copies file 
+cp -r source dest      copies folder
+
+mv old new             renames 
+
+rm file                removes
+rm -r folder
+rm -f                  removes by force
+
+cat file               displays file content 
+cat > file             overwrite file content, ctrl + D to save 
+cat >> file            append to file,         ctrl + D to save 
+gedit file             opens file in gui text editor 
+--------------------------------------------
+📝 Text & Output
+
+echo "text"
+echo "text" > file        overwriting to file
+echo "text" >> file       append text to file 
+
+----------------------------------------------
+
+🛠️ Permissions 
+chmod +x file          makes file executable 
+chmod u=r filename.txt   
+chmod g=r filename.txt   # Only read for group
+chmod o=r filename.txt   # Only read for others
+chmod 444 filename.txt   # r--r--r-- (read-only for all)
+
+🛠️ Processes 
+ps                     lists running processes 
+ps aux                 detailed lists of runnning procdss 
+kill PID               kills process by id 
+kill -9                force kill a  process
